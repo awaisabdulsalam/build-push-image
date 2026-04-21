@@ -23,4 +23,4 @@ jobs:
       - name: Smoke Test
         run: |
           sleep 5
-          curl localhost:8080 | grep "Working"
+          curl localhost:8080 | grep "Hello"
