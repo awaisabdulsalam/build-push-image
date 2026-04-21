@@ -1,0 +1,26 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches: [ "main" ] # Runs whenever you push to the main branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Image Locally
+        run: docker compose build
+
+      - name: Run App Container
+        run: docker compose up -d
+
+      - name: Smoke Test
+        run: |
+          sleep 5
+          curl localhost:3000 | grep "Working"
