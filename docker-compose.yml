@@ -1,0 +1,8 @@
+services:
+  web-app:
+    build: .
+    ports:
+      - "8080:3000" # Maps local port 8080 to container port 3000
+    environment:
+      - NODE_ENV=production
+    restart: always
