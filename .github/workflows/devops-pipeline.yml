@@ -2,7 +2,7 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches: [ "main" ] # Runs whenever you push to the main branch
+    branches: main # Runs whenever you push to the main branch
 
 jobs:
   build-and-test:
